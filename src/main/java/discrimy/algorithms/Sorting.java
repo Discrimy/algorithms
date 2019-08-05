@@ -37,4 +37,19 @@ public class Sorting {
 
         return array;
     }
+
+    public static <T extends Comparable<T>> T[] selectionSort(T[] array) {
+        for (int i = 0; i < array.length; i++) {
+            int minIndex = i;
+            for (int j = i; j < array.length; j++) {
+                if (array[j].compareTo(array[minIndex]) < 0) {
+                    minIndex = j;
+                }
+            }
+
+            swap(array, i, minIndex);
+        }
+
+        return array;
+    }
 }

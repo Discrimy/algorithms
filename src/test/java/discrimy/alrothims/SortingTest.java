@@ -43,4 +43,9 @@ public class SortingTest {
     public Stream<DynamicTest> insertionSortDynamic() {
         return sortingDynamicTest(100, Sorting::insertionSort);
     }
+
+    @TestFactory
+    public Stream<DynamicTest> selectionSortDynamic() {
+        return sortingDynamicTest(100, Sorting::selectionSort);
+    }
 }
