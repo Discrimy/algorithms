@@ -1,5 +1,7 @@
 package discrimy.algorithms;
 
+import java.util.Arrays;
+
 /**
  * Class with some sorting algorithms
  */
@@ -51,5 +53,33 @@ public class Sorting {
         }
 
         return array;
+    }
+
+    public static <T extends Comparable<T>> T[] mergeSort(T[] array) {
+        if (array.length > 1) {
+            return merge(
+                    mergeSort(Arrays.copyOfRange(array, 0, array.length / 2)),
+                    mergeSort(Arrays.copyOfRange(array, array.length / 2, array.length)));
+        } else {
+            return array;
+        }
+    }
+
+    private static <T extends Comparable<T>> T[] merge(T[] a1, T[] a2) {
+        // Java cannot create generic type array, so we have create Comparable array
+        @SuppressWarnings("unchecked")
+        T[] result = (T[]) new Comparable[a1.length + a2.length];
+        int index1 = 0;
+        int index2 = 0;
+        for (int i = 0; i < result.length; i++) {
+            if (index1 == a1.length) result[i] = a2[index2++];
+            else if (index2 == a2.length) result[i] = a1[index1++];
+            else {
+                if (a1[index1].compareTo(a2[index2]) < 0) result[i] = a1[index1++];
+                else if (a2[index2].compareTo(a1[index1]) <= 0) result[i] = a2[index2++];
+            }
+        }
+
+        return result;
     }
 }

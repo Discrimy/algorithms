@@ -48,4 +48,9 @@ public class SortingTest {
     public Stream<DynamicTest> selectionSortDynamic() {
         return sortingDynamicTest(100, Sorting::selectionSort);
     }
+
+    @TestFactory
+    public Stream<DynamicTest> mergeSortDynamic() {
+        return sortingDynamicTest(100, Sorting::mergeSort);
+    }
 }
