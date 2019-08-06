@@ -19,7 +19,7 @@ public class SortingTest {
 
     @BeforeEach
     public void randomizeArray() {
-        array = new Random().ints(10).boxed().toArray(Integer[]::new);
+        array = new Random().ints(1000).boxed().toArray(Integer[]::new);
         sortedArray = Arrays.copyOf(array, array.length);
         Arrays.sort(sortedArray);
     }
