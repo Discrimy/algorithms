@@ -82,4 +82,32 @@ public class Sorting {
 
         return result;
     }
+
+    public static <T extends Comparable<T>> T[] quickSort(T[] array) {
+        quickSort(array, 0, array.length - 1);
+        return array;
+    }
+
+    private static <T extends Comparable<T>> void quickSort(T[] array, int from, int to) {
+        if (array.length == 0) return;
+        if (from >= to) return;
+
+        int pivotIndex = from + (to - from) / 2;
+        T pivot = array[pivotIndex];
+
+        int i = from;
+        int j = to;
+        while (i <= j) {
+            while (array[i].compareTo(pivot) < 0) i++;
+            while (array[j].compareTo(pivot) > 0) j--;
+            if (i <= j) {
+                swap(array, i, j);
+                i++;
+                j--;
+            }
+        }
+
+        if (from < j) quickSort(array, from, j);
+        if (to > i) quickSort(array, i, to);
+    }
 }
