@@ -20,6 +20,12 @@ public class LinkedListTest {
     }
 
     @Test
+    public void throwIndexOutOfBound() {
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.get(3));
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.remove(3));
+    }
+
+    @Test
     public void get() {
         assertEquals(linkedList.size(), 3);
         assertEquals(linkedList.get(0), Integer.valueOf(1));

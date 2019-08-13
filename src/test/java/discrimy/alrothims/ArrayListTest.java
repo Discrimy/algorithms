@@ -21,6 +21,12 @@ public class ArrayListTest {
     }
 
     @Test
+    public void throwIndexOutOfBound() {
+        assertThrows(IndexOutOfBoundsException.class, () -> list.get(3));
+        assertThrows(IndexOutOfBoundsException.class, () -> list.remove(3));
+    }
+
+    @Test
     public void get() {
         assertEquals(3, list.size());
         assertEquals(Integer.valueOf(1), list.get(0));
