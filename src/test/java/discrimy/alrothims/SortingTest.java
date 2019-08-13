@@ -2,14 +2,10 @@ package discrimy.alrothims;
 
 import discrimy.algorithms.Sorting;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DynamicTest;
-import org.junit.jupiter.api.TestFactory;
+import org.junit.jupiter.api.RepeatedTest;
 
 import java.util.Arrays;
 import java.util.Random;
-import java.util.function.Function;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
@@ -24,38 +20,28 @@ public class SortingTest {
         Arrays.sort(sortedArray);
     }
 
-    private <T extends Comparable<T>> Stream<DynamicTest> sortingDynamicTest(int count, Function<Integer[], Integer[]> sortingFunc) {
-        return IntStream.range(0, count)
-                .mapToObj((i) ->
-                        DynamicTest.dynamicTest("Random test", () -> {
-                            randomizeArray();
-                            assertArrayEquals(sortingFunc.apply(array), sortedArray);
-                        })
-                );
+    @RepeatedTest(100)
+    public void bubbleSort() {
+        assertArrayEquals(Sorting.bubbleSort(array), sortedArray);
     }
 
-    @TestFactory
-    public Stream<DynamicTest> bubbleSortDynamic() {
-        return sortingDynamicTest(100, Sorting::bubbleSort);
+    @RepeatedTest(100)
+    public void insertionSort() {
+        assertArrayEquals(Sorting.insertionSort(array), sortedArray);
     }
 
-    @TestFactory
-    public Stream<DynamicTest> insertionSortDynamic() {
-        return sortingDynamicTest(100, Sorting::insertionSort);
+    @RepeatedTest(100)
+    public void selectionSort() {
+        assertArrayEquals(Sorting.selectionSort(array), sortedArray);
     }
 
-    @TestFactory
-    public Stream<DynamicTest> selectionSortDynamic() {
-        return sortingDynamicTest(100, Sorting::selectionSort);
+    @RepeatedTest(100)
+    public void mergeSort() {
+        assertArrayEquals(Sorting.mergeSort(array), sortedArray);
     }
 
-    @TestFactory
-    public Stream<DynamicTest> mergeSortDynamic() {
-        return sortingDynamicTest(100, Sorting::mergeSort);
-    }
-
-    @TestFactory
-    public Stream<DynamicTest> quickSortDynamic() {
-        return sortingDynamicTest(100, Sorting::quickSort);
+    @RepeatedTest(100)
+    public void quickSort() {
+        assertArrayEquals(Sorting.quickSort(array), sortedArray);
     }
 }
