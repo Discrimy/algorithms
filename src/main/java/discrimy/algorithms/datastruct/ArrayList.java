@@ -50,8 +50,8 @@ public class ArrayList<T> implements List<T> {
         if (size - index + 1 >= 0) System.arraycopy(array, index + 1, array, index, size - index + 1);
         size--;
 
-        if (size == array.length - 8) {
-            changeArraySize(size - 8);
+        if (size == array.length - 8 && size > 8) {
+            changeArraySize(array.length - 8);
         }
     }
 
