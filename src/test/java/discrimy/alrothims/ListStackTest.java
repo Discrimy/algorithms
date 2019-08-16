@@ -1,9 +1,9 @@
 package discrimy.alrothims;
 
-import discrimy.algorithms.datastruct.ArrayList;
-import discrimy.algorithms.datastruct.ListStack;
 import discrimy.algorithms.datastruct.Stack;
 import discrimy.algorithms.datastruct.StackEmptyException;
+import discrimy.algorithms.datastruct.impl.ArrayList;
+import discrimy.algorithms.datastruct.impl.ListStack;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

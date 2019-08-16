@@ -1,4 +1,8 @@
-package discrimy.algorithms.datastruct;
+package discrimy.algorithms.datastruct.impl;
+
+import discrimy.algorithms.datastruct.List;
+import discrimy.algorithms.datastruct.Stack;
+import discrimy.algorithms.datastruct.StackEmptyException;
 
 import java.util.Optional;
 

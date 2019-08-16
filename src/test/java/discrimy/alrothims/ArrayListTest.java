@@ -1,7 +1,7 @@
 package discrimy.alrothims;
 
-import discrimy.algorithms.datastruct.ArrayList;
 import discrimy.algorithms.datastruct.List;
+import discrimy.algorithms.datastruct.impl.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

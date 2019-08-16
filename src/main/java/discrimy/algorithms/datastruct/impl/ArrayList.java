@@ -1,4 +1,6 @@
-package discrimy.algorithms.datastruct;
+package discrimy.algorithms.datastruct.impl;
+
+import discrimy.algorithms.datastruct.List;
 
 import java.util.Objects;
 import java.util.Optional;

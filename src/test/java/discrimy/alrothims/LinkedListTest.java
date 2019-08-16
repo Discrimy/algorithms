@@ -1,6 +1,6 @@
 package discrimy.alrothims;
 
-import discrimy.algorithms.datastruct.LinkedList;
+import discrimy.algorithms.datastruct.impl.LinkedList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,5 +1,6 @@
-package discrimy.algorithms.datastruct;
+package discrimy.algorithms.datastruct.impl;
 
+import discrimy.algorithms.datastruct.List;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
