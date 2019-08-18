@@ -10,7 +10,8 @@ public class ArrayList<T> implements List<T> {
     private T[] array;
 
     private void requireIndexInBound(int index) {
-        if (index >= size) throw new IndexOutOfBoundsException("Size is " + size + " but index is " + index);
+        if (index < 0 || index >= size)
+            throw new IndexOutOfBoundsException("Size is " + size + " but index is " + index);
     }
 
     private void changeArraySize(int newSize) {

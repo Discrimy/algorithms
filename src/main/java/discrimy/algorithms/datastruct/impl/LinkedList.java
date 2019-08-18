@@ -197,7 +197,8 @@ public class LinkedList<T> implements List<T> {
     }
 
     private void requireIndexInBound(int index) {
-        if (index >= size) throw new IndexOutOfBoundsException("Size is " + size + " but index is " + index);
+        if (index < 0 || index >= size)
+            throw new IndexOutOfBoundsException("Size is " + size + " but index is " + index);
     }
 
     private static class Node<E> {
