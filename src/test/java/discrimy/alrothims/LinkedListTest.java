@@ -73,4 +73,55 @@ public class LinkedListTest {
         assertEquals(Optional.empty(), noIndex);
         assertEquals(Optional.empty(), noLastIndex);
     }
+
+    @Test
+    public void removeAll() {
+        linkedList.remove(2);
+        linkedList.remove(1);
+        linkedList.remove(0);
+    }
+
+    @Test
+    public void addFirst() {
+        linkedList.addFirst(10);
+        assertEquals(4, linkedList.size());
+        assertEquals(Integer.valueOf(10), linkedList.get(0));
+    }
+
+    @Test
+    public void addLast() {
+        linkedList.addLast(10);
+        assertEquals(4, linkedList.size());
+        assertEquals(Integer.valueOf(10), linkedList.get(linkedList.size() - 1));
+    }
+
+    @Test
+    public void getFirst() {
+        assertEquals(Integer.valueOf(1), linkedList.getFirst());
+    }
+
+    @Test
+    public void getLast() {
+        assertEquals(Integer.valueOf(3), linkedList.getLast());
+    }
+
+    @Test
+    public void removeFirst() {
+        linkedList.removeFirst();
+        assertEquals(Integer.valueOf(5), linkedList.getFirst());
+        linkedList.removeFirst();
+        assertEquals(Integer.valueOf(3), linkedList.getFirst());
+        linkedList.removeFirst();
+        assertEquals(0, linkedList.size());
+    }
+
+    @Test
+    public void removeLast() {
+        linkedList.removeLast();
+        assertEquals(Integer.valueOf(5), linkedList.getLast());
+        linkedList.removeLast();
+        assertEquals(Integer.valueOf(1), linkedList.getLast());
+        linkedList.removeLast();
+        assertEquals(0, linkedList.size());
+    }
 }

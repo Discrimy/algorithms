@@ -3,6 +3,7 @@ package discrimy.algorithms.datastruct.impl;
 import discrimy.algorithms.datastruct.List;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -12,6 +13,52 @@ public class LinkedList<T> implements List<T> {
     private int size;
 
     public LinkedList() {
+    }
+
+    public void addFirst(T data) {
+        Node<T> node = new Node<>(data);
+        linkFirst(node);
+        size++;
+    }
+
+    public void addLast(T data) {
+        Node<T> node = new Node<>(data);
+        linkLast(node);
+        size++;
+    }
+
+    public T getFirst() {
+        if (first == null) {
+            throw new NoSuchElementException("Linked list is empty");
+        }
+
+        return first.getData();
+    }
+
+    public T getLast() {
+        if (last == null) {
+            throw new NoSuchElementException("Linked list is empty");
+        }
+
+        return last.getData();
+    }
+
+    public void removeFirst() {
+        if (first == null) {
+            throw new NoSuchElementException("Linked list is empty");
+        }
+
+        unlink(first);
+        size--;
+    }
+
+    public void removeLast() {
+        if (last == null) {
+            throw new NoSuchElementException("Linked list is empty");
+        }
+
+        unlink(last);
+        size--;
     }
 
     @Override
@@ -107,19 +154,32 @@ public class LinkedList<T> implements List<T> {
         last = node;
     }
 
+    private void linkFirst(Node<T> node) {
+        if (first != null) {
+            link(first, node);
+        } else {
+            last = node;
+        }
+
+        first = node;
+    }
+
     private void unlink(Node<T> node) {
-        if (node == first) {
-            first = node.getNext();
-        }
-
-        if (node == last) {
-            last = node.getPrevious();
-        }
-
         if (node != first && node != last) {
-            Node<T> prev = node.getPrevious();
-            Node<T> next = node.getNext();
-            link(next, prev);
+            link(node.getNext(), node.getPrevious());
+        } else if (node == first && node == last) {
+            first = null;
+            last = null;
+        } else {
+            if (node == first) {
+                node.getNext().setPrevious(null);
+                first = node.getNext();
+            }
+
+            if (node == last) {
+                node.getPrevious().setNext(null);
+                last = node.getPrevious();
+            }
         }
 
         node.setNext(null);
