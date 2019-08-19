@@ -1,9 +1,7 @@
 package discrimy.alrothims;
 
-import discrimy.algorithms.datastruct.Stack;
 import discrimy.algorithms.datastruct.StackEmptyException;
-import discrimy.algorithms.datastruct.impl.ArrayList;
-import discrimy.algorithms.datastruct.impl.ListStack;
+import discrimy.algorithms.datastruct.impl.LinkedListStack;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,12 +10,12 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ListStackTest {
-    private Stack<Integer> stack;
+public class LinkedListStackTest {
+    private LinkedListStack<Integer> stack;
 
     @BeforeEach
     public void prepareStack() {
-        stack = new ListStack<>(new ArrayList<>());
+        stack = new LinkedListStack<>();
         stack.push(1);
         stack.push(2);
         stack.push(3);
