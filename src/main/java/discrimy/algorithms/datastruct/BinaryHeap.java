@@ -1,6 +1,6 @@
 package discrimy.algorithms.datastruct;
 
-public interface BinaryTree<T extends Comparable<T>> {
+public interface BinaryHeap<T extends Comparable<T>> {
     int size();
 
     boolean contains(Object object);
