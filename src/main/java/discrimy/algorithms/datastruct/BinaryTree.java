@@ -1,6 +1,6 @@
 package discrimy.algorithms.datastruct;
 
-public interface BinaryTree<T> {
+public interface BinaryTree<T extends Comparable<T>> {
     int size();
 
     boolean contains(Object object);
@@ -8,8 +8,6 @@ public interface BinaryTree<T> {
     void add(T object);
 
     T max();
-
-    T min();
 
     boolean remove(Object object);
 }
