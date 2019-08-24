@@ -7,7 +7,7 @@ public interface BinaryHeap<T extends Comparable<T>> {
 
     void add(T object);
 
-    T max();
+    T peek();
 
-    boolean remove(Object object);
+    T pop();
 }
