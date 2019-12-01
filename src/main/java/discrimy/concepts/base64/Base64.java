@@ -1,8 +1,17 @@
 package discrimy.concepts.base64;
 
 public class Base64 {
+    /**
+     * Base64 implementation
+     */
     private static final String BASE64_CODES = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
+    /**
+     * Encode array of bytes to base64 string
+     *
+     * @param src source
+     * @return base64 string
+     */
     public static String encode(byte[] src) {
         StringBuilder builder = new StringBuilder();
         int iters = src.length % 3 == 0 ? src.length / 3 : src.length / 3 + 1;
